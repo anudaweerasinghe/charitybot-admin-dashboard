@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="assets/js/index.js"></script>
+
+<script src="app.js"></script>
+<link rel="stylesheet" href="assets/css/style.css">
+
+<link rel="shortcut icon" href="assets/favicon.jpg">
+<head>
+    <meta charset="UTF-8">
+    <title>Dialog Foundation Dashboard</title>
+</head>
+<body>
+<center>
+
+    <div align="right">
+        <button style="font-size: large;" ng-click="logout()">Logout</button>
+    </div>
+    <h1>Coordinator Dashboard</h1>
+    <h2 style="color: red">{{cause}}</h2>
+    <br><br>
+    <h1 style="font-size: 24pt; display: inline-block; margin-right: 500px">Total Donations - <span style="color: red">{{totalDonations}}</span>
+    </h1>
+    <h1 style="font-size: 24pt; display: inline-block">Total Donors - <span style="color: red">{{totalDonors}}</span>
+    </h1><br><br>
+</center>
+
+<form name="reportForm" style="width: 100%" >
+    <h3>Generate Donations Report</h3><br><br>
+    <h4 style=" display: inline-block; margin-right: 500px">Month</h4>
+    <select ng-model="month" style="font-size: 16px" name="Month" required>
+        <option value="01">01</option>
+        <option value="02">02</option>
+        <option value="03">03</option>
+        <option value="04">04</option>
+        <option value="05">05</option>
+        <option value="06">06</option>
+        <option value="07">07</option>
+        <option value="08">08</option>
+        <option value="09">09</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+    </select>
+    <br>
+    <h4 style=" display: inline-block; margin-right: 500px" >Year</h4>
+    <input ng-model="year" type="text" style=" display: inline-block; margin-right: 500px" name="Year" required required maxlength="4">
+    <button ng-disabled="reportForm.$invalid" type="submit" class="button buttonBlue" style="font-family: Futura" ng-click="generateReport()">Generate Report
+        <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
+    </button>
+</form>
+
+<form style="width: 100%" name="edit">
+    <h3>Edit Information</h3><br><br>
+    <h4 style=" display: inline-block; margin-right: 500px">Active Status(0-Inactive, 1-Active)</h4>
+    <select ng-disabled="disabled" style="font-size: 16px" name="Active Status">
+        <option disabled selected value>{{activestatus}}</option>
+        <option value="1">1</option>
+        <option value="0">0</option>
+    </select>
+    <br>
+    <h4 style=" display: inline-block; margin-right: 500px" >Keyword</h4>
+    <input type="text" ng-model="keyw" ng-disabled="true" style=" display: inline-block; margin-right: 500px" name="Keyword">
+    <br>
+    <h4 style=" display: inline-block; margin-right: 500px">Name</h4>
+    <input type="text" ng-disabled="disabled" style=" display: inline-block; margin-right: 500px" ng-model="name" name="Name">
+    <br>
+    <h4 style=" display: inline-block; margin-right: 500px">Info</h4>
+    <input type="text" style=" display: inline-block; margin-right: 500px" name="Info" ng-model="info" required maxlength="80">
+    <br>
+    <h4 style=" display: inline-block; margin-right: 500px">Owner Name</h4>
+    <input type="text" style=" display: inline-block; margin-right: 500px" name="Owner" ng-model="owner">
+    <br>
+    <h4 style=" display: inline-block; margin-right: 500px">Owner Phone</h4>
+    <input type="text" style=" display: inline-block; margin-right: 500px" name="OwnerPhone" ng-model="ownerphone">
+    <br>
+    <h4 style=" display: inline-block; margin-right: 500px">Dashboard Username</h4>
+    <input type="text" style=" display: inline-block; margin-right: 500px" name="Username" ng-model="username">
+    <br>
+    <h4 style=" display: inline-block; margin-right: 500px">Dashboard Password</h4>
+    <input type="password" style=" display: inline-block; margin-right: 500px" name="Password" ng-model="password">
+    <br>
+    <h4 style=" display: inline-block; margin-right: 500px">Cover Image(780px x 410px)</h4>
+    <input type="file" id="file"  style=" display: inline-block; margin-right: 500px" name="file" accept="image/*" onchange="angular.element(this).scope().uploadFile(this.files)"/>
+    <br>
+    <button type="submit" class="button buttonBlue" style="font-family: Futura" ng-click="editCause()">Save
+    <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
+</button>
+
+</form>
+
+</body>
+</html>

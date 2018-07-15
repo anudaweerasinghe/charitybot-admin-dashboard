@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="assets/js/index.js"></script>
+
+<script src="app.js"></script>
+<link rel="stylesheet" href="assets/css/style.css">
+
+<link rel="shortcut icon" href="assets/favicon.jpg">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Create Cause|Dialog Foundation</title>
+</head>
+<body>
+<center>
+
+    <div align="left">
+        <button style="font-size: large; display: inline-block; margin-right: 90%" ng-click="home()">Home</button>
+        <button style="font-size: large; display: inline-block" ng-click="logout()">Logout</button>
+    </div>
+    <h1>Create New Cause</h1>
+    <h2 style="color: red">Admin</h2>
+    <br><br>
+</center>
+
+<form style="width: 100%" name="edit">
+    <h3>New Cause</h3><br><br>
+    <h4 style=" display: inline-block; margin-right: 500px" >Keyword</h4>
+    <input type="text" ng-model="keyw" style=" display: inline-block; margin-right: 500px" name="Keyword" required  maxlength="5">
+    <br>
+    <h4 style=" display: inline-block; margin-right: 500px">Name</h4>
+    <input type="text" style=" display: inline-block; margin-right: 500px" ng-model="name" name="Name" required maxlength="80">
+    <br>
+    <h4 style=" display: inline-block; margin-right: 500px">Info</h4>
+    <input type="text" style=" display: inline-block; margin-right: 500px" name="Info" ng-model="info" required maxlength="80">
+    <br>
+    <h4 style=" display: inline-block; margin-right: 500px">Owner Name</h4>
+    <input type="text" style=" display: inline-block; margin-right: 500px" name="Owner" ng-model="owner" required>
+    <br>
+    <h4 style=" display: inline-block; margin-right: 500px">Owner Phone</h4>
+    <input type="text" style=" display: inline-block; margin-right: 500px" name="OwnerPhone" ng-model="ownerphone" required>
+    <br>
+    <h4 style=" display: inline-block; margin-right: 500px">Dashboard Username</h4>
+    <input type="text" style=" display: inline-block; margin-right: 500px" name="Username" ng-model="username" required>
+    <br>
+    <h4 style=" display: inline-block; margin-right: 500px">Dashboard Password</h4>
+    <input type="password" style=" display: inline-block; margin-right: 500px" name="Password" ng-model="password" required>
+    <br>
+    <h4 style=" display: inline-block; margin-right: 500px">Cover Image</h4>
+    <input type="file" id="file"  style=" display: inline-block; margin-right: 500px" name="file" accept="image/*" onchange="angular.element(this).scope().uploadFiles(this.files)" required/>
+    <br>
+    <button type="submit" class="button buttonBlue" style="font-family: Futura" ng-click="createCause()" ng-disabled="edit.$invalid">Create Cause
+        <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
+    </button>
+
+</form>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="assets/js/index.js"></script>
+
+<script src="app.js"></script>
+<link rel="stylesheet" href="assets/css/style.css">
+
+<link rel="shortcut icon" href="assets/favicon.jpg">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard|Dialog Foundation</title>
+</head>
+<body>
+<center>
+
+    <div align="left">
+        <button style="font-size: large; display: inline-block; margin-right: 85%" ng-click="create()">Create Cause</button>
+        <button style="font-size: large; display: inline-block" ng-click="logout()">Logout</button>
+    </div>
+    <h1>Admin Dashboard</h1>
+    <h2 style="color: red">Dialog Foundation Crowd-Sourced Funding Platform</h2>
+    <br><br>
+    <div>
+        <p style="font-size: 13pt">Search by Cause:</p>
+        <input style="font-size: large" type="text" ng-model="search.name">
+    </div>
+
+    <br><br><br>
+    <table style="width: 100%">
+        <tr ng-repeat="item in causes | filter:search">
+            <td>{{item.name}}</td>
+            <td style="width: 10%">{{item.activeStatus}}</td>
+            <td style="width: 10%"><a href="#!/charity?cId={{item.keyword}}">See More</a></td>
+        </tr>
+    </table>
+</center>
+</body>
+</html>
