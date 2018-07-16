@@ -170,7 +170,8 @@ charityApp.controller('createController', function ($scope, $http, $state, $cook
             $scope.imageDirss = $scope.imgDirector.replace('/var/www/html/', 'http://128.199.178.5/');
 
             $scope.imageDirs = $scope.imageDirss.replace('"', '');
-            $scope.imageDir =  $scope.imageDirs.replace('"', '');
+            $scope.imageDirsss =  $scope.imageDirs.replace('"', '');
+            $scope.imageDir = $scope.imageDirsss.replace(' ',  '%20');
 
             $http({
                 method: 'POST',
@@ -310,7 +311,8 @@ charityApp.controller('charityController', function ($scope, $http, $state, $coo
                 $scope.imageDirss = $scope.imgDirector.replace('/var/www/html/', 'http://128.199.178.5/');
 
                 $scope.imageDirs = $scope.imageDirss.replace('"', '');
-                $scope.imageDir =  $scope.imageDirs.replace('"', '');
+                $scope.imageDirsss =  $scope.imageDirs.replace('"', '');
+                $scope.imageDir = $scope.imageDirsss.replace(' ',  '%20');
 
                 console.log($scope.imageDir);
                 $http({
